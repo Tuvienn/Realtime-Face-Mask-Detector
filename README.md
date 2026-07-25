@@ -182,4 +182,3 @@ docker compose up
 <br>
 <i>💖 Cảm ơn mọi người đã quan tâm và theo dõi dự án này. Chúc các bạn một ngày tốt lành!</i>
 
-</div># Realtime-Face-Mask-Detector
