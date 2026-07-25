@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+*.keras
+*.caffemodel
+logs/
+outputs/
+.git/
+.gitignore

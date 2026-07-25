@@ -1,0 +1,40 @@
+# ─────────────────────────────────────────────
+# Face Mask Detector — Configuration
+# ─────────────────────────────────────────────
+
+data:
+  train_dir: "./data/train"
+  val_dir: "./data/test"
+  image_size: [150, 150]
+  batch_size: 32
+
+model:
+  num_classes: 2          # with_mask / without_mask
+  activation_output: "softmax"
+  dropout_rate: 0.5
+  dense_units: 128
+
+training:
+  epochs: 30
+  optimizer: "adam"
+  loss: "categorical_crossentropy"
+  metrics: ["accuracy"]
+  model_save_path: "./best_model.keras"
+  early_stopping_patience: 5
+  monitor_metric: "val_loss"
+
+inference:
+  face_confidence_threshold: 0.5
+  model_path: "./best_model.keras"
+  face_net_prototxt: "./models/deploy.prototxt"
+  face_net_weights: "./models/res10_300x300_ssd_iter_140000.caffemodel"
+  labels:
+    0: "mask"
+    1: "without mask"
+  colors:
+    0: [0, 255, 0]    # Green — wearing mask
+    1: [0, 0, 255]    # Red — no mask
+
+evaluation:
+  report_save_path: "./outputs/eval_report.txt"
+  plots_save_path: "./outputs/plots/"

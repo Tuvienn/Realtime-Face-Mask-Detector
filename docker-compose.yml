@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  evaluator:
+    build: .
+    container_name: face_mask_evaluator
+    volumes:
+      - .:/app
+    command: python scripts/evaluate.py --model ./best_model.keras --test-dir ./data/test --output ./outputs
